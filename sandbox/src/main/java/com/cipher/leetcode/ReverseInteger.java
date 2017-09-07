@@ -14,7 +14,9 @@ package com.cipher.leetcode;
 public class ReverseInteger {
 
     public static int reverse(int x) {
+        // 计算反数
         int result = 0;
+        // x 递减 10 倍，所以 x 不等于 0，都要进入计算
         while (x != 0) {
             // 取 x 个位上的数字
             int tail = x % 10;
