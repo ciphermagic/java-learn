@@ -2,7 +2,7 @@ package com.cipher.leetcode;
 
 /**
  * 问题：
- * Write a function to find the longest common prefix string amongst an array of strings.
+ * Write a function to find the longest custom prefix string amongst an array of strings.
  * PS：
  * 查找一个字符串数组的最长公共前缀，例如：["abc", "abcd12f", "abi"]，返回 "ab"
  * Created by cipher on 2017/9/8.
