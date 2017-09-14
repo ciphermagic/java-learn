@@ -20,12 +20,10 @@ package com.cipher.algorithm.sort;
 public class BubbleSort {
 
     public static void sort(int[] data) {
-        int total = 0;
         // 循环 n-1 次，下标从 1 开始
         for (int i = 1; i < data.length; i++) {
             // 循环 n-i 次
             for (int j = 0; j < data.length - i; j++) {
-                total++;
                 if (data[j] > data[j + 1]) {
                     int tmp = data[j];
                     data[j] = data[j + 1];
@@ -33,11 +31,10 @@ public class BubbleSort {
                 }
             }
         }
-        System.out.println(total);
     }
 
     public static void main(String[] args) {
-        int[] data = {4, 3, 2, 1};
+        int[] data = {1, 2, 3, 4};
         sort(data);
         for (int i : data) {
             System.out.print(i + " ");
