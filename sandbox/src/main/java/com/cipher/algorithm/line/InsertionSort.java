@@ -17,7 +17,7 @@ public class InsertionSort {
             Comparable x = data[i];
             // j 保存元素 x 应该插入的位置
             int j;
-            for (j = i; j > 0 && x.compareTo(data[j - 1]) < 0; j--) {
+            for (j = i; j >= 1 && x.compareTo(data[j - 1]) < 0; j--) {
                 data[j] = data[j - 1];
             }
             data[j] = x;
