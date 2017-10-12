@@ -85,4 +85,11 @@ public class SortTestHelper {
         }
     }
 
+    // 复制一个数组
+    public static Integer[] copy(Integer[] arr) {
+        Integer[] result = new Integer[arr.length];
+        System.arraycopy(arr, 0, result, 0, arr.length);
+        return result;
+    }
+
 }
