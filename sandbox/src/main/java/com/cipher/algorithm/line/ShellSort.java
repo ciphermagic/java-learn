@@ -4,7 +4,7 @@ import static com.cipher.algorithm.line.SortTestHelper.generateRandomArray;
 import static com.cipher.algorithm.line.SortTestHelper.testSort;
 
 /**
- * 希尔排序 —— 插入排序的延伸
+ * 希尔排序 —— 插入排序的延伸，不稳定，最差 O(n^2)
  * 将插入排序中的步长 1 换成一个增量序列
  * Created by cipher on 2017/10/12.
  */

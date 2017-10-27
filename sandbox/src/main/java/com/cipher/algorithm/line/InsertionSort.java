@@ -3,7 +3,7 @@ package com.cipher.algorithm.line;
 import static com.cipher.algorithm.line.SortTestHelper.*;
 
 /**
- * 插入排序 O(n*n)
+ * 插入排序 O(n^2)
  * 从第 1 个元素开始，依次判断此元素与之前元素的大小，
  * 如果比前元素小，就把前元素往后挪一个位置，否则终止循环，把该元素放到最后终止的位置
  * 重要性质：提前终止内层循环，在近乎有序的数组中效率最高

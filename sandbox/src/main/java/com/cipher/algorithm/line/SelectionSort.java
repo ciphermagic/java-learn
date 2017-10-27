@@ -3,7 +3,7 @@ package com.cipher.algorithm.line;
 import static com.cipher.algorithm.line.SortTestHelper.*;
 
 /**
- * 选择排序 O(n*n)
+ * 选择排序 O(n^2)
  * i 从 0 开始递增，以第 i 个元素为最小，从 i+1 开始找出比该值更小的元素，与之交换位置。
  * Created by cipher on 2017/9/14.
  */

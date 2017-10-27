@@ -3,7 +3,7 @@ package com.cipher.algorithm.line;
 import static com.cipher.algorithm.line.SortTestHelper.*;
 
 /**
- * 冒泡排序 O(n*n)
+ * 冒泡排序 O(n^2)
  * 循环 n 趟，每一趟依次比较每个元素与下一个元素的大小，把最大的元素“沉”到最后
  * Created by cipher on 2017/9/12.
  */
