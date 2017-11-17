@@ -30,7 +30,7 @@ public class ShellSort {
     }
 
     public static void main(String[] args) {
-        Integer[] data1 = generateRandomArray(100, 1, 100);
+        Integer[] data1 = generateRandomArray(10000, 1, 10000);
         testSort(ShellSort.class, data1);
     }
 

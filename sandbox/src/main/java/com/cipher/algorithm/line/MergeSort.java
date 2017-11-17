@@ -62,10 +62,16 @@ public class MergeSort {
     }
 
     public static void main(String[] args) {
-        Integer[] data1 = generateRandomArray(20000, 1, 20000);
+        Integer[] data1 = generateRandomArray(100000, 1, 20000);
         Integer[] data2 = copy(data1);
-        testSort(InsertionSort.class, data1);
-        testSort(MergeSort.class, data2);
+        Integer[] data3 = copy(data1);
+        Integer[] data4 = copy(data1);
+        Integer[] data5 = copy(data1);
+//        testSort(BubbleSort.class, data1);
+//        testSort(SelectionSort.class, data2);
+//        testSort(InsertionSort.class, data3);
+        testSort(ShellSort.class, data4);
+        testSort(MergeSort.class, data5);
     }
 
 }
