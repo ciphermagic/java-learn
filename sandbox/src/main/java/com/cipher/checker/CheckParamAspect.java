@@ -24,7 +24,7 @@ public class CheckParamAspect {
 
     private static final Logger LOG = LoggerFactory.getLogger(CheckParamAspect.class);
 
-    @Around(value = "@annotation(com.tupperware.pos.common.annotation.Check)")
+    @Around(value = "@com.cipher.checker.Check")
     public Object check(ProceedingJoinPoint point) throws Throwable {
         Object obj;
         // 参数校验
@@ -58,8 +58,11 @@ public class CheckParamAspect {
                 msg = "param can not be null";
             } else {
                 for (String field : fields) {
+                    // 解析字段
                     FieldInfo info = resolveField(field, methodInfo);
+                    // 获取字段的值
                     Object value = ReflectionUtil.invokeGetter(vo, info.field);
+                    // 执行校验规则
                     Boolean isValid = info.optEnum.fun.apply(value, info.operatorNum);
                     msg = isValid ? msg : info.innerMsg;
                 }
