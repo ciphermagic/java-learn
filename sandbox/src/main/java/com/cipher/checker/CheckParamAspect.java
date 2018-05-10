@@ -24,7 +24,7 @@ public class CheckParamAspect {
 
     private static final Logger LOG = LoggerFactory.getLogger(CheckParamAspect.class);
 
-    @Around(value = "@com.cipher.checker.Check")
+    @Around(value = "@com.cipher.checker.Check") // 这里要换成自定义注解的路径
     public Object check(ProceedingJoinPoint point) throws Throwable {
         Object obj;
         // 参数校验
@@ -33,6 +33,7 @@ public class CheckParamAspect {
             // 这里可以返回自己封装的返回类，例如：return ResultBuilder.unsuccess(msg);
             throw new IllegalArgumentException(msg);
         }
+        // 通过校验，继续执行原有方法
         obj = point.proceed();
         return obj;
     }
@@ -48,11 +49,13 @@ public class CheckParamAspect {
         Object[] arguments = point.getArgs();
         // 获取方法
         Method method = getMethod(point);
+        // 默认的错误信息
         String methodInfo = StringUtils.isEmpty(method.getName()) ? "" : " while calling " + method.getName();
         String msg = "";
         if (isCheck(method, arguments)) {
             Check annotation = method.getAnnotation(Check.class);
             String[] fields = annotation.value();
+            // 只支持对第一个参数进行校验
             Object vo = arguments[0];
             if (vo == null) {
                 msg = "param can not be null";
@@ -82,9 +85,9 @@ public class CheckParamAspect {
         FieldInfo fieldInfo = new FieldInfo();
         String innerMsg = "";
         // 解析提示信息
-        if (fieldStr.contains(SPLITOR)) {
-            innerMsg = fieldStr.split(SPLITOR)[1];
-            fieldStr = fieldStr.split(SPLITOR)[0];
+        if (fieldStr.contains(SEPARATOR)) {
+            innerMsg = fieldStr.split(SEPARATOR)[1];
+            fieldStr = fieldStr.split(SEPARATOR)[0];
         }
         // 解析操作符
         if (fieldStr.contains(Operator.GREATER_THAN_EQUAL.value)) {
@@ -111,10 +114,13 @@ public class CheckParamAspect {
             fieldInfo.operatorNum = fieldStr.split(fieldInfo.optEnum.value)[1];
         }
         fieldInfo.operator = fieldInfo.optEnum.value;
+        // 处理错误信息
         String defaultMsg = fieldInfo.field + " must " + fieldInfo.operator + " " + fieldInfo.operatorNum + methodInfo;
         fieldInfo.innerMsg = StringUtils.isEmpty(innerMsg) ? defaultMsg : innerMsg;
         return fieldInfo;
     }
+
+    // -=================== 对不同类型的值进行校验 起 =======================
 
     /**
      * 是否不为空
@@ -265,6 +271,8 @@ public class CheckParamAspect {
         return isNotEqual;
     }
 
+    // -=================== 对不同类型的值进行校验 止 =======================
+
     /**
      * 判断是否符合参数规则
      *
@@ -274,6 +282,7 @@ public class CheckParamAspect {
      */
     private Boolean isCheck(Method method, Object[] arguments) {
         Boolean isCheck = Boolean.TRUE;
+        // 只允许有一个参数
         if (!method.isAnnotationPresent(Check.class)
                 || arguments == null
                 || arguments.length != 1) {
@@ -332,7 +341,7 @@ public class CheckParamAspect {
     }
 
     /**
-     * 操作枚举
+     * 操作枚举，封装操作符和对应的校验规则
      */
     enum Operator {
         /**
@@ -361,6 +370,10 @@ public class CheckParamAspect {
         NOT_NULL("not null", CheckParamAspect::isNotNull);
 
         private String value;
+
+        /**
+         * BiFunction：接收字段值(Object)和操作数(String)，返回是否符合规则(Boolean)
+         */
         private BiFunction<Object, String, Boolean> fun;
 
         Operator(String value, BiFunction<Object, String, Boolean> fun) {
@@ -371,6 +384,6 @@ public class CheckParamAspect {
 
     // -====================== 常量 =========================
 
-    private static final String SPLITOR = ":";
+    private static final String SEPARATOR = ":";
 
 }
