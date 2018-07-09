@@ -18,7 +18,7 @@ public class SortTestHelper {
             // Math.random() 生成 [0, 1) 之间的随机数
             // Math.random() * (rangeR - rangeL + 1) 生成 [0, y-x] 之间的随机数
             // (Math.random() * (rangeR - rangeL + 1) + rangeL) 生成 [x, y] 之间的随机数
-            arr[i] = new Integer((int) (Math.random() * (rangeR - rangeL + 1) + rangeL));
+            arr[i] = (int) (Math.random() * (rangeR - rangeL + 1) + rangeL);
         }
         return arr;
     }
@@ -31,7 +31,7 @@ public class SortTestHelper {
     public static Integer[] generateNearlyOrderedArray(int n, int swapTimes) {
         Integer[] arr = new Integer[n];
         for (int i = 0; i < n; i++) {
-            arr[i] = new Integer(i);
+            arr[i] = i;
         }
         for (int i = 0; i < swapTimes; i++) {
             int a = (int) (Math.random() * n);
