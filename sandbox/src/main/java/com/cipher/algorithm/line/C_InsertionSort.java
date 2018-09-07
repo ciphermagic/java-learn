@@ -9,15 +9,15 @@ import static com.cipher.algorithm.line.SortTestHelper.*;
  * 重要性质：提前终止内层循环，在近乎有序的数组中效率最高
  * Created by cipher on 2017/10/12.
  */
-public class InsertionSort {
+public class C_InsertionSort {
 
-    public static void sort(Comparable[] data) {
+    public static void sort(int[] data) {
         for (int i = 1; i < data.length; i++) {
             // 寻找元素 arr[i] 合适的插入位置
-            Comparable x = data[i];
+            int x = data[i];
             // j 保存元素 x 应该插入的位置
             int j;
-            for (j = i; j >= 1 && x.compareTo(data[j - 1]) < 0; j--) {
+            for (j = i; j >= 1 && x < (data[j - 1]); j--) {
                 data[j] = data[j - 1];
             }
             data[j] = x;
@@ -25,10 +25,10 @@ public class InsertionSort {
     }
 
     public static void main(String[] args) {
-        Integer[] data1 = generateRandomArray(20000, 1, 100000);
-        Integer[] data2 = copy(data1);
-        testSort(InsertionSort.class, data1);
-        testSort(SelectionSort.class, data2);
+        int[] data1 = generateRandomArray(20000, 1, 100000);
+        int[] data2 = copy(data1);
+        testSort(C_InsertionSort.class, data1);
+        testSort(B_SelectionSort.class, data2);
     }
 
 }

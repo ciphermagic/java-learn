@@ -12,14 +12,14 @@ import static com.cipher.algorithm.line.SortTestHelper.testSort;
  * 把原数组逐次 2 分，把 2 分后的数组根据规则（需要定义 3 个索引：归并数组索引，两个下级数组的索引）合并到上一级的数组中。
  * Created by cipher on 2017/11/7.
  */
-public class MergeSort {
+public class E_MergeSort {
 
-    public static void sort(Comparable[] data) {
+    public static void sort(int[] data) {
         _sort(data, 0, data.length - 1);
     }
 
     // 递归使用归并排序,对 data[l...r] 的范围进行排序
-    private static void _sort(Comparable[] data, int l, int r) {
+    private static void _sort(int[] data, int l, int r) {
         if (l >= r) {
             return;
         }
@@ -30,9 +30,9 @@ public class MergeSort {
     }
 
     // 将 data[l...mid] 和 data[mid+1...r] 两部分进行归并
-    private static void merge(Comparable[] data, int l, int mid, int r) {
+    private static void merge(int[] data, int l, int mid, int r) {
         // 复制一份原数组
-        Comparable[] aux = Arrays.copyOfRange(data, l, r + 1);
+        int[] aux = Arrays.copyOfRange(data, l, r + 1);
         // 初始化，i指向左半部分的起始索引位置l；j指向右半部分起始索引位置mid+1
         // aux 数组与原数组有 l 个位置的偏移量
         int i = l;
@@ -49,7 +49,7 @@ public class MergeSort {
                 i++;
             }
             // 左半部分所指元素 < 右半部分所指元素
-            else if (aux[i - l].compareTo(aux[j - l]) < 0) {
+            else if (aux[i - l] < (aux[j - l])) {
                 data[k] = aux[i - l];
                 i++;
             }
@@ -62,16 +62,16 @@ public class MergeSort {
     }
 
     public static void main(String[] args) {
-        Integer[] data1 = generateRandomArray(100000, 1, 20000);
-        Integer[] data2 = copy(data1);
-        Integer[] data3 = copy(data1);
-        Integer[] data4 = copy(data1);
-        Integer[] data5 = copy(data1);
-//        testSort(BubbleSort.class, data1);
-//        testSort(SelectionSort.class, data2);
-//        testSort(InsertionSort.class, data3);
-        testSort(ShellSort.class, data4);
-        testSort(MergeSort.class, data5);
+        int[] data1 = generateRandomArray(1000, 1, 20000);
+        int[] data2 = copy(data1);
+        int[] data3 = copy(data1);
+        int[] data4 = copy(data1);
+        int[] data5 = copy(data1);
+        testSort(A_BubbleSort.class, data1);
+        testSort(B_SelectionSort.class, data2);
+        testSort(C_InsertionSort.class, data3);
+        testSort(D_ShellSort.class, data4);
+        testSort(E_MergeSort.class, data5);
     }
 
 }

@@ -12,8 +12,8 @@ public class SortTestHelper {
     }
 
     // 生成有n个元素的随机数组,每个元素的随机范围为[rangeL, rangeR]
-    public static Integer[] generateRandomArray(int n, int rangeL, int rangeR) {
-        Integer[] arr = new Integer[n];
+    public static int[] generateRandomArray(int n, int rangeL, int rangeR) {
+        int[] arr = new int[n];
         for (int i = 0; i < n; i++) {
             // Math.random() 生成 [0, 1) 之间的随机数
             // Math.random() * (rangeR - rangeL + 1) 生成 [0, y-x] 之间的随机数
@@ -28,8 +28,8 @@ public class SortTestHelper {
     // swapTimes定义了数组的无序程度:
     // swapTimes == 0 时, 数组完全有序
     // swapTimes 越大, 数组越趋向于无序
-    public static Integer[] generateNearlyOrderedArray(int n, int swapTimes) {
-        Integer[] arr = new Integer[n];
+    public static int[] generateNearlyOrderedArray(int n, int swapTimes) {
+        int[] arr = new int[n];
         for (int i = 0; i < n; i++) {
             arr[i] = i;
         }
@@ -42,14 +42,14 @@ public class SortTestHelper {
     }
 
     // 交换数组中两个元素的位置
-    public static void swap(Comparable[] data, int i, int j) {
-        Comparable temp = data[i];
+    public static void swap(int[] data, int i, int j) {
+        int temp = data[i];
         data[i] = data[j];
         data[j] = temp;
     }
 
     // 打印 arr 数组的所有内容
-    public static void printArray(Object[] arr) {
+    public static void printArray(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");
         }
@@ -58,9 +58,9 @@ public class SortTestHelper {
     }
 
     // 判断 arr 数组是否有序
-    public static boolean isSorted(Comparable[] arr) {
+    public static boolean isSorted(int[] arr) {
         for (int i = 0; i < arr.length - 1; i++) {
-            if (arr[i].compareTo(arr[i + 1]) > 0) {
+            if (arr[i] > (arr[i + 1])) {
                 return false;
             }
         }
@@ -68,10 +68,10 @@ public class SortTestHelper {
     }
 
     // 测试 sortClassName 所对应的排序算法排序arr数组所得到结果的正确性和算法运行时间
-    public static void testSort(Class sortClass, Comparable[] arr) {
+    public static void testSort(Class sortClass, int[] arr) {
         try {
             // 通过排序函数的Class对象获得排序方法
-            Method sortMethod = sortClass.getMethod("sort", new Class[]{Comparable[].class});
+            Method sortMethod = sortClass.getMethod("sort", new Class[]{int[].class});
             // 排序参数只有一个，是可比较数组arr
             Object[] params = new Object[]{arr};
             long startTime = System.currentTimeMillis();
@@ -86,8 +86,8 @@ public class SortTestHelper {
     }
 
     // 复制一个数组
-    public static Integer[] copy(Integer[] arr) {
-        Integer[] result = new Integer[arr.length];
+    public static int[] copy(int[] arr) {
+        int[] result = new int[arr.length];
         System.arraycopy(arr, 0, result, 0, arr.length);
         return result;
     }
