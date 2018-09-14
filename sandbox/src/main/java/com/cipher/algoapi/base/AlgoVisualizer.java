@@ -27,7 +27,7 @@ public abstract class AlgoVisualizer {
      *
      * @return
      */
-    public abstract AlgoFrame initFrame();
+    public abstract AlgoFrame initFrame(int sceneWidth, int sceneHeight);
 
     /**
      * 动画逻辑
@@ -42,7 +42,7 @@ public abstract class AlgoVisualizer {
         data = initData(sceneWidth, sceneHeight);
         // 视图
         EventQueue.invokeLater(() -> {
-            frame = initFrame();
+            frame = initFrame(sceneWidth, sceneHeight);
             // 动画逻辑
             new Thread(() -> run(data, frame)).start();
         });

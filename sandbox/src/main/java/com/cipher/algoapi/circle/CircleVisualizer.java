@@ -39,8 +39,8 @@ public class CircleVisualizer extends AlgoVisualizer {
     }
 
     @Override
-    public AlgoFrame initFrame() {
-        CircleFrame frame = new CircleFrame("Welcome", 800, 800);
+    public AlgoFrame initFrame(int sceneWidth, int sceneHeight) {
+        CircleFrame frame = new CircleFrame("Welcome", sceneWidth, sceneHeight);
         frame.addKeyListener(new AlgoKeyListener());
         frame.addMouseListener(new AlgoMouseListener());
         return frame;

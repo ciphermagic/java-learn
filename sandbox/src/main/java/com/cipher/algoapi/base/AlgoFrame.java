@@ -61,7 +61,9 @@ public abstract class AlgoFrame extends JFrame {
         protected void paintComponent(Graphics g) {
             super.paintComponent(g);
             AlgoVisHelper algoVisHelper = AlgoVisHelper.getInstance(g);
-            AlgoFrame.this.paint(algoVisHelper, data);
+            if (data != null) {
+                AlgoFrame.this.paint(algoVisHelper, data);
+            }
         }
 
         @Override
