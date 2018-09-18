@@ -1,7 +1,6 @@
 package com.cipher.algoapi.base;
 
 import java.awt.*;
-import java.awt.event.*;
 
 /**
  * @Author: CipherCui
@@ -50,5 +49,9 @@ public abstract class AlgoVisualizer {
 
     public Object getData() {
         return data;
+    }
+
+    public AlgoFrame getFrame() {
+        return frame;
     }
 }

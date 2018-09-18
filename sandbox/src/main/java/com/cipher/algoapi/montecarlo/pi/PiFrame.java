@@ -1,4 +1,4 @@
-package com.cipher.algoapi.pi;
+package com.cipher.algoapi.montecarlo.pi;
 
 import com.cipher.algoapi.base.AlgoFrame;
 import com.cipher.algoapi.base.AlgoVisHelper;

@@ -21,10 +21,10 @@ public class MoneyFrame extends AlgoFrame {
         for (int i = 0; i < money.length; i++) {
             if (money[i] > 0) {
                 algoVisHelper.setColor(AlgoVisHelper.Blue);
-                algoVisHelper.fillRectangle(i * w + 1, getCanvasHeight() / 2 - money[i], w - 1, money[i]);
+                algoVisHelper.fillRectangle(i * w, getCanvasHeight() / 2 - money[i], w - 1, money[i]);
             } else if (money[i] < 0) {
                 algoVisHelper.setColor(AlgoVisHelper.Red);
-                algoVisHelper.fillRectangle(i * w + 1, getCanvasHeight() / 2, w - 1, -money[i]);
+                algoVisHelper.fillRectangle(i * w, getCanvasHeight() / 2, w - 1, -money[i]);
             }
         }
     }

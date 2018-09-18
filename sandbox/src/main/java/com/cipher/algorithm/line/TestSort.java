@@ -1,7 +1,5 @@
 package com.cipher.algorithm.line;
 
-import java.util.Arrays;
-
 import static com.cipher.algorithm.line.SortTestHelper.*;
 
 /**
@@ -11,13 +9,9 @@ public class TestSort {
 
     public static void sort(int[] nums) {
         for (int i = 0; i < nums.length; i++) {
-            int min = i;
-            for (int j = i + 1; j < nums.length; j++) {
-                if (nums[j] < nums[min]) {
-                    min = j;
-                }
+            for (int j = i; j > 0 && nums[j] < nums[j - 1]; j--) {
+                swap(nums, j, j - 1);
             }
-            swap(nums, i, min);
         }
     }
 

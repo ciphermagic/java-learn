@@ -1,4 +1,4 @@
-package com.cipher.algoapi.MontyHall;
+package com.cipher.algoapi.montecarlo.montyhall;
 
 
 /**

@@ -1,4 +1,4 @@
-package com.cipher.algoapi.pi;
+package com.cipher.algoapi.montecarlo.pi;
 
 import java.awt.*;
 import java.util.LinkedList;
