@@ -1,7 +1,5 @@
 package com.cipher.algorithm.line;
 
-import java.util.Arrays;
-
 import static com.cipher.algorithm.line.SortTestHelper.*;
 
 /**
@@ -14,42 +12,33 @@ public class TestSort {
     }
 
     private static void _sort(int[] nums, int l, int r) {
-        System.out.println("Deal with [ " + l + " , " + r + " ]");
         if (l >= r) {
             return;
         }
-        int mid = (l + r) / 2;
-        _sort(nums, l, mid);
-        _sort(nums, mid + 1, r);
-        merge(nums, l, mid, r);
+        int p = partition(nums, l, r);
+        _sort(nums, l, p - 1);
+        _sort(nums, p + 1, r);
     }
 
-    private static void merge(int[] nums, int l, int mid, int r) {
-        int[] aux = Arrays.copyOfRange(nums, l, r + 1);
-        int i = l;
-        int j = mid + 1;
-        for (int k = l; k <= r; k++) {
-            if (i > mid) {
-                nums[k] = aux[j - l];
+    private static int partition(int[] nums, int l, int r) {
+        int v = nums[l];
+        int j = l;
+        for (int i = l + 1; i < nums.length; i++) {
+            if (nums[i] < v) {
                 j++;
-            } else if (j > r) {
-                nums[k] = aux[i - l];
-                i++;
-            } else if (aux[i - l] < aux[j - l]) {
-                nums[k] = aux[i - l];
-                i++;
-            } else {
-                nums[k] = aux[j - l];
-                j++;
+                swap(nums, i, j);
             }
         }
+        swap(nums, l, j);
+        return j;
     }
 
+
     public static void main(String[] args) {
-        int[] data = generateRandomArray(10, 1, 10);
-        printArray(data);
+        int[] data = generateRandomArray(1000000, 1, 10);
+//        printArray(data);
         testSort(TestSort.class, data);
-        printArray(data);
+//        printArray(data);
     }
 
 }
