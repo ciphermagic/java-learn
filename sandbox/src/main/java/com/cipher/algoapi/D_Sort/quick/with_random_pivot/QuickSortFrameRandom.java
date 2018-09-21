@@ -1,4 +1,4 @@
-package com.cipher.algoapi.D_Sort.quick.simple;
+package com.cipher.algoapi.D_Sort.quick.with_random_pivot;
 
 import com.cipher.algoapi.A_Base.AlgoFrame;
 import com.cipher.algoapi.A_Base.AlgoVisHelper;
@@ -8,15 +8,15 @@ import com.cipher.algoapi.A_Base.AlgoVisHelper;
  * @Description:
  * @Date: Created in 14:09 2018/9/19
  */
-public class QuickSortFrame extends AlgoFrame {
+public class QuickSortFrameRandom extends AlgoFrame {
 
-    public QuickSortFrame(String title, int canvasWidth, int canvasHeight) {
+    public QuickSortFrameRandom(String title, int canvasWidth, int canvasHeight) {
         super(title, canvasWidth, canvasHeight);
     }
 
     @Override
     public void paint(AlgoVisHelper algoVisHelper, Object data) {
-        QuickSortData sortData = (QuickSortData) data;
+        QuickSortDataRandom sortData = (QuickSortDataRandom) data;
         int w = getCanvasWidth() / sortData.N();
         for (int i = 0; i < sortData.N(); i++) {
             if (i >= sortData.l && i <= sortData.r) {

@@ -9,28 +9,28 @@ import com.cipher.algoapi.A_Base.AlgoVisualizer;
  * @Description:
  * @Date: Created in 17:43 2018/9/15
  */
-public class QuickSortVisualizer extends AlgoVisualizer {
+public class QuickSortVisualizerSimple extends AlgoVisualizer {
 
     private static final int N = 100;
-    private static final int DELAY = 100;
+    private static final int DELAY = 20;
 
-    public QuickSortVisualizer(int sceneWidth, int sceneHeight) {
+    public QuickSortVisualizerSimple(int sceneWidth, int sceneHeight) {
         super(sceneWidth, sceneHeight);
     }
 
     @Override
     public Object initData(int sceneWidth, int sceneHeight) {
-        return new QuickSortData(N, sceneHeight);
+        return new QuickSortDataSimple(N, sceneHeight, QuickSortDataSimple.Type.NearlyOrdered);
     }
 
     @Override
     public AlgoFrame initFrame(int sceneWidth, int sceneHeight) {
-        return new QuickSortFrame("Quick Sort", sceneWidth, sceneHeight);
+        return new QuickSortFrameSimple("Quick Sort", sceneWidth, sceneHeight);
     }
 
     @Override
     public void run(Object data, AlgoFrame frame) {
-        QuickSortData sortData = (QuickSortData) getData();
+        QuickSortDataSimple sortData = (QuickSortDataSimple) getData();
         setData(-1, -1, -1, -1, -1);
         quickSort(0, sortData.N() - 1);
         setData(-1, -1, -1, -1, -1);
@@ -51,7 +51,7 @@ public class QuickSortVisualizer extends AlgoVisualizer {
     }
 
     private int partition(int l, int r) {
-        QuickSortData sortData = (QuickSortData) getData();
+        QuickSortDataSimple sortData = (QuickSortDataSimple) getData();
         int v = sortData.get(l);
         setData(l, r, -1, l, -1);
         int j = l;
@@ -69,7 +69,7 @@ public class QuickSortVisualizer extends AlgoVisualizer {
     }
 
     private void setData(int l, int r, int fixedPivot, int curPivot, int curElement) {
-        QuickSortData data = (QuickSortData) getData();
+        QuickSortDataSimple data = (QuickSortDataSimple) getData();
         data.l = l;
         data.r = r;
         data.curPivot = curPivot;
@@ -82,7 +82,7 @@ public class QuickSortVisualizer extends AlgoVisualizer {
     }
 
     public static void main(String[] args) {
-        new QuickSortVisualizer(800, 300);
+        new QuickSortVisualizerSimple(800, 300);
     }
 
 }

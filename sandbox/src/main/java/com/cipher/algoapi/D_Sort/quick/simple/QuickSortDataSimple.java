@@ -1,11 +1,18 @@
 package com.cipher.algoapi.D_Sort.quick.simple;
 
+import java.util.Arrays;
+
 /**
  * @Author: CipherCui
  * @Description:
  * @Date: Created in 13:53 2018/9/19
  */
-public class QuickSortData {
+public class QuickSortDataSimple {
+
+    public enum Type {
+        Default,
+        NearlyOrdered
+    }
 
     public int[] numbers;
     public int l, r;
@@ -13,13 +20,26 @@ public class QuickSortData {
     public int curElement;
     public boolean[] fixedPivot;
 
-    public QuickSortData(int N, int randomBound) {
+    public QuickSortDataSimple(int N, int randomBound, Type dataType) {
         numbers = new int[N];
         fixedPivot = new boolean[N];
         for (int i = 0; i < N; i++) {
             numbers[i] = (int) (Math.random() * randomBound) + 1;
             fixedPivot[i] = false;
         }
+        if (dataType == Type.NearlyOrdered) {
+            Arrays.sort(numbers);
+            int swapTimes = (int) (0.01 * N);
+            for (int i = 0; i < swapTimes; i++) {
+                int a = (int) (Math.random() * N);
+                int b = (int) (Math.random() * N);
+                swap(a, b);
+            }
+        }
+    }
+
+    public QuickSortDataSimple(int N, int randomBound) {
+        this(N, randomBound, Type.Default);
     }
 
     public int N() {
