@@ -10,6 +10,18 @@
 
     <dependencies>
 
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>4.1.6.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>3.12.1.GA</version>
+        </dependency>
+
         <!-- https://github.com/hankcs/HanLP -->
         <dependency>
             <groupId>com.hankcs</groupId>

@@ -36,6 +36,10 @@ public abstract class AlgoVisualizer {
      */
     public abstract void run(Object data, AlgoFrame frame);
 
+    public AlgoVisualizer() {
+        this(0, 0);
+    }
+
     public AlgoVisualizer(int sceneWidth, int sceneHeight) {
         // 数据
         data = initData(sceneWidth, sceneHeight);

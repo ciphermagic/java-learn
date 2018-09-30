@@ -12,8 +12,15 @@ import java.util.Scanner;
  */
 public class MazeData {
 
+    public static final char ROAD = ' ';
+    public static final char WALL = '#';
     private int N, M;
     private char[][] maze;
+    private int entranceX, entranceY;
+    private int exitX, exitY;
+    public boolean[][] visited;
+    public boolean[][] path;
+    public boolean[][] result;
 
     public MazeData(String fileName) {
         Scanner scanner = null;
@@ -26,6 +33,9 @@ public class MazeData {
             N = Integer.parseInt(nm[0]);
             M = Integer.parseInt(nm[1]);
             maze = new char[N][M];
+            visited = new boolean[N][M];
+            path = new boolean[N][M];
+            result = new boolean[N][M];
             for (int i = 0; i < N; i++) {
                 String line = scanner.nextLine();
                 for (int j = 0; j < M; j++) {
@@ -39,6 +49,26 @@ public class MazeData {
                 scanner.close();
             }
         }
+        this.entranceX = 1;
+        this.entranceY = 0;
+        this.exitX = N - 2;
+        this.exitY = M - 1;
+    }
+
+    public int getEntranceX() {
+        return entranceX;
+    }
+
+    public int getEntranceY() {
+        return entranceY;
+    }
+
+    public int getExitX() {
+        return exitX;
+    }
+
+    public int getExitY() {
+        return exitY;
     }
 
     public int N() {

@@ -1,5 +1,7 @@
 ## 算法应用、可视化
 
+https://github.com/liuyubobobo/Play-with-Algorithm-Visualization
+
 - 圆圈运动
 
         圆圈的碰撞运动，预热JFrame基础；
@@ -34,3 +36,10 @@
     - 归并排序
     - 快速排序
     - 堆排序
+    
+- 走迷宫
+
+    - 深度优先
+    - 广度优先
+    
+- 随机迷宫生成
