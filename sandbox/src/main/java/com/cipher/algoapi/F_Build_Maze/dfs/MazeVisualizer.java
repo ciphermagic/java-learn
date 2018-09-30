@@ -1,0 +1,49 @@
+package com.cipher.algoapi.F_Build_Maze.dfs;
+
+import com.cipher.algoapi.A_Base.AlgoFrame;
+import com.cipher.algoapi.A_Base.AlgoVisHelper;
+import com.cipher.algoapi.A_Base.AlgoVisualizer;
+import com.cipher.algoapi.F_Build_Maze.MazeData;
+import com.cipher.algoapi.F_Build_Maze.MazeFrame;
+
+/**
+ * @Author: CipherCui
+ * @Description:
+ * @Date: Created in 11:41 2018/9/27
+ */
+public class MazeVisualizer extends AlgoVisualizer {
+
+    private static final int N = 101;
+    private static final int M = 101;
+    private static final int BLOCK_SIDE = 6;
+    private static final int DELAY = 5;
+
+    @Override
+    public Object initData(int sceneWidth, int sceneHeight) {
+        return new MazeData(N, M);
+    }
+
+    @Override
+    public AlgoFrame initFrame(int sceneWidth, int sceneHeight) {
+        MazeData data = (MazeData) getData();
+        return new MazeFrame("Build Maze", data.M() * BLOCK_SIDE, data.N() * BLOCK_SIDE);
+    }
+
+    @Override
+    public void run(Object data, AlgoFrame frame) {
+        MazeData mazeData = (MazeData) data;
+        setData();
+    }
+
+    private void setData() {
+        MazeFrame frame = (MazeFrame) getFrame();
+        MazeData data = (MazeData) getData();
+        frame.render(data);
+        AlgoVisHelper.pause(DELAY);
+    }
+
+    public static void main(String[] args) {
+        new MazeVisualizer();
+    }
+
+}
