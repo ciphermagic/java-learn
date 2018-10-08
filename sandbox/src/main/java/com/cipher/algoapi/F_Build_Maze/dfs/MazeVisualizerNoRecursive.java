@@ -6,12 +6,14 @@ import com.cipher.algoapi.A_Base.AlgoVisualizer;
 import com.cipher.algoapi.F_Build_Maze.MazeData;
 import com.cipher.algoapi.F_Build_Maze.MazeFrame;
 
+import java.util.Stack;
+
 /**
  * @Author: CipherCui
  * @Description:
  * @Date: Created in 11:41 2018/9/27
  */
-public class MazeVisualizer extends AlgoVisualizer {
+public class MazeVisualizerNoRecursive extends AlgoVisualizer {
 
     private static final int N = 101;
     private static final int M = 101;
@@ -34,21 +36,25 @@ public class MazeVisualizer extends AlgoVisualizer {
     public void run(Object data, AlgoFrame frame) {
         MazeData mazeData = (MazeData) data;
         setData(-1, -1);
-        go(mazeData.getEntranceX(), mazeData.getEntranceY() + 1);
-        setData(-1, -1);
-    }
 
-    private void go(int x, int y) {
-        MazeData data = (MazeData) getData();
-        data.visited[x][y] = true;
-        for (int[] aD : d) {
-            int newX = x + aD[0] * 2;
-            int newY = y + aD[1] * 2;
-            if (data.inArea(newX, newY) && !data.visited[newX][newY]) {
-                setData(x + aD[0], y + aD[1]);
-                go(newX, newY);
+        Stack<Position> stack = new Stack<>();
+        Position first = new Position(mazeData.getEntranceX(), mazeData.getEntranceY() + 1);
+        stack.push(first);
+        mazeData.visited[first.x][first.y] = true;
+        while (!stack.empty()) {
+            Position curPos = stack.pop();
+            for (int[] aD : d) {
+                int newX = curPos.x + aD[0] * 2;
+                int newY = curPos.y + aD[1] * 2;
+                if (mazeData.inArea(newX, newY) && !mazeData.visited[newX][newY]) {
+                    stack.push(new Position(newX, newY));
+                    mazeData.visited[newX][newY] = true;
+                    setData(curPos.x + aD[0], curPos.y + aD[1]);
+                }
             }
         }
+
+        setData(-1, -1);
     }
 
     private void setData(int x, int y) {
@@ -61,8 +67,17 @@ public class MazeVisualizer extends AlgoVisualizer {
         AlgoVisHelper.pause(DELAY);
     }
 
+    private class Position {
+        private int x, y;
+
+        private Position(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
+    }
+
     public static void main(String[] args) {
-        new MazeVisualizer();
+        new MazeVisualizerNoRecursive();
     }
 
 }

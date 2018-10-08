@@ -1,10 +1,13 @@
-package com.cipher.algoapi.F_Build_Maze.dfs;
+package com.cipher.algoapi.F_Build_Maze.bfs;
 
 import com.cipher.algoapi.A_Base.AlgoFrame;
 import com.cipher.algoapi.A_Base.AlgoVisHelper;
 import com.cipher.algoapi.A_Base.AlgoVisualizer;
 import com.cipher.algoapi.F_Build_Maze.MazeData;
 import com.cipher.algoapi.F_Build_Maze.MazeFrame;
+import org.springframework.util.CollectionUtils;
+
+import java.util.LinkedList;
 
 /**
  * @Author: CipherCui
@@ -34,21 +37,25 @@ public class MazeVisualizer extends AlgoVisualizer {
     public void run(Object data, AlgoFrame frame) {
         MazeData mazeData = (MazeData) data;
         setData(-1, -1);
-        go(mazeData.getEntranceX(), mazeData.getEntranceY() + 1);
-        setData(-1, -1);
-    }
 
-    private void go(int x, int y) {
-        MazeData data = (MazeData) getData();
-        data.visited[x][y] = true;
-        for (int[] aD : d) {
-            int newX = x + aD[0] * 2;
-            int newY = y + aD[1] * 2;
-            if (data.inArea(newX, newY) && !data.visited[newX][newY]) {
-                setData(x + aD[0], y + aD[1]);
-                go(newX, newY);
+        LinkedList<Position> queue = new LinkedList<>();
+        Position first = new Position(mazeData.getEntranceX(), mazeData.getEntranceY() + 1);
+        queue.addLast(first);
+        mazeData.visited[first.x][first.y] = true;
+        while (!CollectionUtils.isEmpty(queue)) {
+            Position curPos = queue.removeFirst();
+            for (int[] aD : d) {
+                int newX = curPos.x + aD[0] * 2;
+                int newY = curPos.y + aD[1] * 2;
+                if (mazeData.inArea(newX, newY) && !mazeData.visited[newX][newY]) {
+                    queue.addLast(new Position(newX, newY));
+                    mazeData.visited[newX][newY] = true;
+                    setData(curPos.x + aD[0], curPos.y + aD[1]);
+                }
             }
         }
+
+        setData(-1, -1);
     }
 
     private void setData(int x, int y) {
@@ -59,6 +66,15 @@ public class MazeVisualizer extends AlgoVisualizer {
         }
         frame.render(data);
         AlgoVisHelper.pause(DELAY);
+    }
+
+    private class Position {
+        private int x, y;
+
+        private Position(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
     }
 
     public static void main(String[] args) {
