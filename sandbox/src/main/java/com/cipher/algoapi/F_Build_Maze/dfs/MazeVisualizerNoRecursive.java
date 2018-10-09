@@ -10,7 +10,7 @@ import java.util.Stack;
 
 /**
  * @Author: CipherCui
- * @Description:
+ * @Description: 深度优先，无递归生成迷宫
  * @Date: Created in 11:41 2018/9/27
  */
 public class MazeVisualizerNoRecursive extends AlgoVisualizer {

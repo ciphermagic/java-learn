@@ -14,12 +14,19 @@ public class MazeData {
     private int entranceX, entranceY;
     private int exitX, exitY;
     public boolean[][] visited;
+    public boolean[][] inMist;
+    public boolean[][] path;
+    public boolean[][] result;
+    public boolean enableMist;
 
     public MazeData(int N, int M) {
         this.N = N;
         this.M = M;
         this.maze = new char[N][M];
         this.visited = new boolean[N][M];
+        this.inMist = new boolean[N][M];
+        this.path = new boolean[N][M];
+        this.result = new boolean[N][M];
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < M; j++) {
                 if (i % 2 == 1 && j % 2 == 1) {
@@ -27,6 +34,7 @@ public class MazeData {
                 } else {
                     maze[i][j] = WALL;
                 }
+                inMist[i][j] = true;
             }
         }
         this.entranceX = 1;
@@ -63,5 +71,13 @@ public class MazeData {
 
     public boolean inArea(int x, int y) {
         return x >= 0 && x < N && y >= 0 && y < M;
+    }
+
+    public void openMist(int newX, int newY) {
+        for (int i = newX - 1; i <= newX + 1; i++) {
+            for (int j = newY - 1; j <= newY + 1; j++) {
+                this.inMist[i][j] = false;
+            }
+        }
     }
 }

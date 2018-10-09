@@ -8,7 +8,7 @@ import com.cipher.algoapi.E_Maze.MazeFrame;
 
 /**
  * @Author: CipherCui
- * @Description:
+ * @Description: 深度优先递归走迷宫
  * @Date: Created in 11:41 2018/9/27
  */
 public class MazeVisualizer extends AlgoVisualizer {

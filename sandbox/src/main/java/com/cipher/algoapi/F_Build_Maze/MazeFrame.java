@@ -21,10 +21,17 @@ public class MazeFrame extends AlgoFrame {
         int h = getCanvasHeight() / mazeData.N();
         for (int i = 0; i < mazeData.N(); i++) {
             for (int j = 0; j < mazeData.M(); j++) {
-                if (mazeData.maze[i][j] == MazeData.WALL) {
-                    algoVisHelper.setColor(AlgoVisHelper.LightBlue);
+                if (mazeData.enableMist && mazeData.inMist[i][j]) {
+                    algoVisHelper.setColor(AlgoVisHelper.Black);
                 } else {
-                    algoVisHelper.setColor(AlgoVisHelper.White);
+                    if (mazeData.maze[i][j] == MazeData.WALL) {
+                        algoVisHelper.setColor(AlgoVisHelper.LightBlue);
+                    } else {
+                        algoVisHelper.setColor(AlgoVisHelper.White);
+                    }
+                    if (mazeData.path[i][j]) {
+                        algoVisHelper.setColor(AlgoVisHelper.Yellow);
+                    }
                 }
                 algoVisHelper.fillRectangle(j * w, i * h, w, h);
             }

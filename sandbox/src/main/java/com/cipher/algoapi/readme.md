@@ -43,3 +43,10 @@ https://github.com/liuyubobobo/Play-with-Algorithm-Visualization
     - 广度优先
     
 - 随机迷宫生成
+
+    - 深度优先
+    - 广度优先
+    - 随机队列
+    
+        - 数组实现，入队尾，随机出队，是广度优先的随机版；
+        - 链表实现，随机入队尾或队首，随机出队尾或队首，等于结合深度优先和广度优先；

@@ -11,7 +11,7 @@ import java.util.LinkedList;
 
 /**
  * @Author: CipherCui
- * @Description:
+ * @Description: 广度优先生成迷宫
  * @Date: Created in 11:41 2018/9/27
  */
 public class MazeVisualizer extends AlgoVisualizer {
