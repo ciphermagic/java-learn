@@ -21,10 +21,18 @@ public class MineSweeperFrame extends AlgoFrame {
         int h = getCanvasHeight() / data.N();
         for (int i = 0; i < data.N(); i++) {
             for (int j = 0; j < data.M(); j++) {
-                if (data.isMine(i, j)) {
-                    algoVisHelper.putImage(j * w, i * h, MineSweeperData.MINE_IMAGE_URL);
+                if (data.open[i][j]) {
+                    if (data.isMine(i, j)) {
+                        algoVisHelper.putImage(j * w, i * h, MineSweeperData.MINE_IMAGE_URL);
+                    } else {
+                        algoVisHelper.putImage(j * w, i * h, MineSweeperData.numberImageURL(data.getNumber(i, j)));
+                    }
                 } else {
-                    algoVisHelper.putImage(j * w, i * h, MineSweeperData.BLOCK_IMAGE_URL);
+                    if (data.flags[i][j]) {
+                        algoVisHelper.putImage(j * w, i * h, MineSweeperData.FLAG_IMAGE_URL);
+                    } else {
+                        algoVisHelper.putImage(j * w, i * h, MineSweeperData.BLOCK_IMAGE_URL);
+                    }
                 }
             }
         }

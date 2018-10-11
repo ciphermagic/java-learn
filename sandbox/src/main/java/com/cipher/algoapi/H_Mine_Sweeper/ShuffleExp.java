@@ -1,5 +1,7 @@
 package com.cipher.algoapi.H_Mine_Sweeper;
 
+import java.util.function.Consumer;
+
 /**
  * @Author: CipherCui
  * @Description: 验证算法的随机性
@@ -20,25 +22,18 @@ public class ShuffleExp {
         this.m = m;
     }
 
-    public void run() {
+    public void run(Consumer<int[]> shuffle) {
         int freq[] = new int[n];
         int arr[] = new int[n];
         for (int i = 0; i < N; i++) {
             reset(arr);
-            shuffle(arr);
+            shuffle.accept(arr);
             for (int j = 0; j < n; j++) {
                 freq[j] += arr[j];
             }
         }
         for (int i = 0; i < n; i++) {
             System.out.println(i + " : " + (double) freq[i] / N);
-        }
-    }
-
-    private void shuffle(int[] arr) {
-        for (int i = 0; i < m; i++) {
-            int x = (int) (Math.random() * n);
-            swap(arr, i, x);
         }
     }
 
@@ -57,9 +52,39 @@ public class ShuffleExp {
         }
     }
 
+    // -===================== 洗牌算法 ↓ ==========================
+
+    private void shuffle1(int[] arr) {
+        for (int i = 0; i < m; i++) {
+            int x = (int) (Math.random() * n);
+            swap(arr, i, x);
+        }
+    }
+
+    private void shuffle2(int[] arr) {
+        for (int i = 0; i < n; i++) {
+            int x = (int) (Math.random() * n);
+            swap(arr, i, x);
+        }
+    }
+
+    private void shuffle3(int[] arr) {
+        for (int i = 0; i < n; i++) {
+            int x = (int) (Math.random() * (n - i)) + i;
+            swap(arr, i, x);
+        }
+    }
+
+    private void shuffle4(int[] arr) {
+        for (int i = n - 1; i >= 0; i--) {
+            int x = (int) (Math.random() * (i + 1));
+            swap(arr, i, x);
+        }
+    }
+
     public static void main(String[] args) {
         ShuffleExp shuffleExp = new ShuffleExp(10000000, 10, 5);
-        shuffleExp.run();
+        shuffleExp.run(shuffleExp::shuffle4);
     }
 
 }

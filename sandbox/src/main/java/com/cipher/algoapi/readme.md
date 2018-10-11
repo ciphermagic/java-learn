@@ -57,3 +57,6 @@ https://github.com/liuyubobobo/Play-with-Algorithm-Visualization
     - 验证算法的随机性
     
             以扑克牌为例，54张牌，可以得到54!种结果。一个“好”的洗牌算法可以等概率的获取这54!种结果之一。
+    
+    - Fisher-Yates-Knuth 洗牌算法
+    - floodfill 算法
