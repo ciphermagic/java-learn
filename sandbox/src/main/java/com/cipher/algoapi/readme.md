@@ -60,3 +60,7 @@ https://github.com/liuyubobobo/Play-with-Algorithm-Visualization
     
     - Fisher-Yates-Knuth 洗牌算法
     - floodfill 算法
+    
+- Move the Box 自动生成解
+
+- 分形图
