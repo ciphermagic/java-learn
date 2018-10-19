@@ -42,6 +42,10 @@ public abstract class AlgoFrame extends JFrame {
 
     private Object data;
 
+    public Object getData() {
+        return data;
+    }
+
     public void render(Object data) {
         this.data = data;
         this.repaint();

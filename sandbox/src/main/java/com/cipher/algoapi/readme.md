@@ -64,3 +64,10 @@ https://github.com/liuyubobobo/Play-with-Algorithm-Visualization
 - Move the Box 自动生成解
 
 - 分形图
+
+    - Recursive Circle
+    - Vicsek Fractal
+    - Sierpinski Carpet
+    - Sierpinski Triangle
+    - Snowflake Fractal
+    - Tree Fractal

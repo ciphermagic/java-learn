@@ -3,6 +3,8 @@ package com.cipher.algoapi.A_Base;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
+import java.awt.geom.GeneralPath;
+import java.awt.geom.Line2D;
 import java.awt.geom.Rectangle2D;
 
 /**
@@ -75,6 +77,15 @@ public class AlgoVisHelper {
         g2d.fill(rectangle);
     }
 
+    public void fillTriangle(int x1, int y1, int x2, int y2, int x3, int y3) {
+        GeneralPath path = new GeneralPath();
+        path.moveTo(x1, y1);
+        path.lineTo(x2, y2);
+        path.lineTo(x3, y3);
+        path.closePath();
+        g2d.fill(path);
+    }
+
     public void putImage(int x, int y, String imageURL) {
         ImageIcon icon = new ImageIcon(imageURL);
         Image image = icon.getImage();
@@ -89,6 +100,11 @@ public class AlgoVisHelper {
         int w = metrics.stringWidth(text);
         int h = metrics.getDescent();
         g2d.drawString(text, centerx - w / 2, centery + h);
+    }
+
+    public void drawLine(double x1, double y1, double x2, double y2){
+        Line2D line = new Line2D.Double(x1, y1, x2, y2);
+        g2d.draw(line);
     }
 
     public static void pause(long time) {
