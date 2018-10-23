@@ -1,6 +1,6 @@
-package com.cipher.algorithms.line;
+package com.cipher.algorithms.A_Sort;
 
-import static com.cipher.algorithms.line.SortTestHelper.*;
+import static com.cipher.algorithms.A_Sort.SortTestHelper.*;
 
 /**
  * Created by cipher on 2017/9/12.

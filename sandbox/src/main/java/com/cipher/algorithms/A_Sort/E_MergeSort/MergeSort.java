@@ -1,15 +1,15 @@
-package com.cipher.algorithms.line.E_MergeSort;
+package com.cipher.algorithms.A_Sort.E_MergeSort;
 
-import com.cipher.algorithms.line.A_BubbleSort.BubbleSort;
-import com.cipher.algorithms.line.B_SelectionSort.SelectionSort;
-import com.cipher.algorithms.line.C_InsertionSort.InsertionSort;
-import com.cipher.algorithms.line.D_ShellSort.ShellSort;
+import com.cipher.algorithms.A_Sort.A_BubbleSort.BubbleSort;
+import com.cipher.algorithms.A_Sort.B_SelectionSort.SelectionSort;
+import com.cipher.algorithms.A_Sort.C_InsertionSort.InsertionSort;
+import com.cipher.algorithms.A_Sort.D_ShellSort.ShellSort;
 
 import java.util.Arrays;
 
-import static com.cipher.algorithms.line.SortTestHelper.copy;
-import static com.cipher.algorithms.line.SortTestHelper.generateRandomArray;
-import static com.cipher.algorithms.line.SortTestHelper.testSort;
+import static com.cipher.algorithms.A_Sort.SortTestHelper.copy;
+import static com.cipher.algorithms.A_Sort.SortTestHelper.generateRandomArray;
+import static com.cipher.algorithms.A_Sort.SortTestHelper.testSort;
 
 /**
  * 归并排序 O(nlogn)

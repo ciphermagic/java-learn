@@ -1,4 +1,4 @@
-package com.cipher.algorithms.line;
+package com.cipher.algorithms.A_Sort;
 
 import java.lang.reflect.Method;
 

@@ -1,6 +1,6 @@
-package com.cipher.algorithms.line.B_SelectionSort;
+package com.cipher.algorithms.A_Sort.B_SelectionSort;
 
-import static com.cipher.algorithms.line.SortTestHelper.*;
+import static com.cipher.algorithms.A_Sort.SortTestHelper.*;
 
 /**
  * 选择排序 O(n^2)

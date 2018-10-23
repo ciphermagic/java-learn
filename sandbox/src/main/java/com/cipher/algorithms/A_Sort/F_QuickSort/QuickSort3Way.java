@@ -1,6 +1,6 @@
-package com.cipher.algorithms.line.F_QuickSort;
+package com.cipher.algorithms.A_Sort.F_QuickSort;
 
-import static com.cipher.algorithms.line.SortTestHelper.*;
+import static com.cipher.algorithms.A_Sort.SortTestHelper.*;
 
 /**
  * @Author: CipherCui

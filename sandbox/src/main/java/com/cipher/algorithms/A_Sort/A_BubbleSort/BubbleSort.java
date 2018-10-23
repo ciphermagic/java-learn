@@ -1,6 +1,6 @@
-package com.cipher.algorithms.line.A_BubbleSort;
+package com.cipher.algorithms.A_Sort.A_BubbleSort;
 
-import static com.cipher.algorithms.line.SortTestHelper.*;
+import static com.cipher.algorithms.A_Sort.SortTestHelper.*;
 
 /**
  * 冒泡排序 O(n^2)

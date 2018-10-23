@@ -1,8 +1,8 @@
-package com.cipher.algorithms.line.C_InsertionSort;
+package com.cipher.algorithms.A_Sort.C_InsertionSort;
 
-import com.cipher.algorithms.line.B_SelectionSort.SelectionSort;
+import com.cipher.algorithms.A_Sort.B_SelectionSort.SelectionSort;
 
-import static com.cipher.algorithms.line.SortTestHelper.*;
+import static com.cipher.algorithms.A_Sort.SortTestHelper.*;
 
 /**
  * 插入排序 O(n^2)

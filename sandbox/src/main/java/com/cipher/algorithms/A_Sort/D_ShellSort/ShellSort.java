@@ -1,7 +1,7 @@
-package com.cipher.algorithms.line.D_ShellSort;
+package com.cipher.algorithms.A_Sort.D_ShellSort;
 
-import static com.cipher.algorithms.line.SortTestHelper.generateRandomArray;
-import static com.cipher.algorithms.line.SortTestHelper.testSort;
+import static com.cipher.algorithms.A_Sort.SortTestHelper.generateRandomArray;
+import static com.cipher.algorithms.A_Sort.SortTestHelper.testSort;
 
 /**
  * 希尔排序 —— 插入排序的延伸，不稳定，最差 O(n^2)
