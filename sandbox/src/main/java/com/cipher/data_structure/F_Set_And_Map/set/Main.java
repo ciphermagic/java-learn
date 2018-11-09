@@ -1,6 +1,6 @@
-package com.cipher.data_structure.F_Set_And_Map.set;
+package com.cipher.data_structure.F_Set_and_Map.set;
 
-import com.cipher.data_structure.F_Set_And_Map.FileOperation;
+import com.cipher.data_structure.F_Set_and_Map.FileOperation;
 
 import java.util.ArrayList;
 

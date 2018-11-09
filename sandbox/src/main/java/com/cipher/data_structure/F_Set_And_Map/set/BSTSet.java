@@ -1,4 +1,4 @@
-package com.cipher.data_structure.F_Set_And_Map.set;
+package com.cipher.data_structure.F_Set_and_Map.set;
 
 import com.cipher.data_structure.E_Binary_Search_Tree.BST;
 

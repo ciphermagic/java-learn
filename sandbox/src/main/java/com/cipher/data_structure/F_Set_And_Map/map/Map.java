@@ -1,4 +1,4 @@
-package com.cipher.data_structure.F_Set_And_Map.map;
+package com.cipher.data_structure.F_Set_and_Map.map;
 
 /**
  * @Author: CipherCui

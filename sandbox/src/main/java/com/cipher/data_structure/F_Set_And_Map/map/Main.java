@@ -1,6 +1,6 @@
-package com.cipher.data_structure.F_Set_And_Map.map;
+package com.cipher.data_structure.F_Set_and_Map.map;
 
-import com.cipher.data_structure.F_Set_And_Map.FileOperation;
+import com.cipher.data_structure.F_Set_and_Map.FileOperation;
 
 import java.util.ArrayList;
 
@@ -23,10 +23,12 @@ public class Main {
         System.out.println("Total words: " + words.size());
         System.out.println("----------------------------");
 
-        testSet(new LinkedListMap<>(), words);
+        testMap(new LinkedListMap<>(), words);
+        System.out.println();
+        testMap(new BSTMap<>(), words);
     }
 
-    private static void testSet(Map<String, Integer> map, ArrayList<String> words) {
+    private static void testMap(Map<String, Integer> map, ArrayList<String> words) {
         long start = nanoTime();
         for (String w : words) {
             if (map.contains(w)) {

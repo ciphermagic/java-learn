@@ -1,4 +1,4 @@
-package com.cipher.data_structure.F_Set_And_Map;
+package com.cipher.data_structure.F_Set_and_Map;
 
 import java.io.BufferedInputStream;
 import java.io.File;

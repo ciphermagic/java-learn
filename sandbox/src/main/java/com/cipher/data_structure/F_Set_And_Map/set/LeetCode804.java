@@ -1,4 +1,4 @@
-package com.cipher.data_structure.F_Set_And_Map.set;
+package com.cipher.data_structure.F_Set_and_Map.set;
 
 import java.util.Set;
 import java.util.TreeSet;
