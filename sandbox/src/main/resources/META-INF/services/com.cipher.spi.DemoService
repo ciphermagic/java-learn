@@ -1,0 +1,5 @@
+#English implementation
+com.cipher.spi.EnglishDemoServiceImpl
+
+#Chinese implementation
+com.cipher.spi.ChineseDemoServiceImpl
