@@ -7,13 +7,20 @@ import com.cipher.data_structure.A_Arrays.Array;
  * @Description:
  * @Date: Created in 13:33 2018/11/9
  */
-@SuppressWarnings({"unchecked","unused"})
+@SuppressWarnings({"unchecked", "unused"})
 public class MaxHeap<E extends Comparable> {
 
     private Array<E> data;
 
     public MaxHeap() {
         data = new Array<>();
+    }
+
+    public MaxHeap(E[] arr) {
+        data = new Array<>(arr);
+        for (int i = parent(arr.length - 1); i >= 0; i--) {
+            siftDown(i);
+        }
     }
 
     public MaxHeap(int capacity) {
@@ -83,6 +90,14 @@ public class MaxHeap<E extends Comparable> {
             data.swap(k, j);
             k = j;
         }
+    }
+
+    // 取出堆中的最大元素，并替换成 e
+    public E replace(E e) {
+        E ret = findMax();
+        data.set(0, e);
+        siftDown(0);
+        return ret;
     }
 
 }
