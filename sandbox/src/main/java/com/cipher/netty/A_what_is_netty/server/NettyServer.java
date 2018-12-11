@@ -1,4 +1,4 @@
-package com.cipher.netty.C_netty;
+package com.cipher.netty.A_what_is_netty.server;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelHandlerContext;

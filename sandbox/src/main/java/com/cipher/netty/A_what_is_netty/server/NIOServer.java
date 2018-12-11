@@ -1,4 +1,4 @@
-package com.cipher.netty.B_jdk_nio;
+package com.cipher.netty.A_what_is_netty.server;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;

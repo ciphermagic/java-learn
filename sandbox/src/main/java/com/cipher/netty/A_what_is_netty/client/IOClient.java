@@ -1,4 +1,4 @@
-package com.cipher.netty.A_simple_io;
+package com.cipher.netty.A_what_is_netty.client;
 
 import java.io.IOException;
 import java.net.Socket;
