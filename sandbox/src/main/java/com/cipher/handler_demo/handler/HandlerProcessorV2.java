@@ -25,6 +25,14 @@ public class HandlerProcessorV2 implements BeanPostProcessor {
     @Autowired
     private ApplicationContext applicationContext;
 
+    /**
+     * 遍历所有bean，找到加了@HandlerType注解的bean
+     *
+     * @param o bean对象
+     * @param s bean名称
+     * @return bean
+     * @throws BeansException bean异常
+     */
     @Override
     public Object postProcessBeforeInitialization(Object o, String s) throws BeansException {
         if (o.getClass().isAnnotationPresent(HandlerType.class)) {
@@ -35,10 +43,18 @@ public class HandlerProcessorV2 implements BeanPostProcessor {
         return o;
     }
 
+    /**
+     * 在bean初始化后，初始化HandlerContext，注册到容器，只需执行一次
+     *
+     * @param o bean对象
+     * @param s bean名称
+     * @return bean
+     * @throws BeansException bean异常
+     */
     @Override
     public Object postProcessAfterInitialization(Object o, String s) throws BeansException {
         if (!initHandlerContext) {
-            DefaultListableBeanFactory beanFactory =  (DefaultListableBeanFactory) applicationContext.getAutowireCapableBeanFactory();
+            DefaultListableBeanFactory beanFactory = (DefaultListableBeanFactory) applicationContext.getAutowireCapableBeanFactory();
             HandlerContext context = new HandlerContext(handlerMap);
             beanFactory.registerSingleton(HandlerContext.class.getName(), context);
             initHandlerContext = true;
