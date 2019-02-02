@@ -4,7 +4,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.support.ApplicationObjectSupport;
 import org.springframework.stereotype.Component;
-import org.springframework.web.context.WebApplicationContext;
 
 /**
  * Bean工具类<br>
@@ -15,16 +14,7 @@ import org.springframework.web.context.WebApplicationContext;
 @Component
 public class BeanTool extends ApplicationObjectSupport implements ApplicationContextAware {
 
-    static ApplicationContext context;
     private static ApplicationContext applicationContext = null;
-
-    public static void setApplicationContext(WebApplicationContext applicationContext) {
-        BeanTool.applicationContext = applicationContext;
-    }
-
-    public BeanTool getInstance() {
-        return new BeanTool();
-    }
 
     @Override
     protected void initApplicationContext(ApplicationContext context) {
