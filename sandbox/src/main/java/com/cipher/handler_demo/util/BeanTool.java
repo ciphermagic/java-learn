@@ -1,8 +1,8 @@
 package com.cipher.handler_demo.util;
 
+import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
-import org.springframework.context.support.ApplicationObjectSupport;
 import org.springframework.stereotype.Component;
 
 /**
@@ -12,28 +12,23 @@ import org.springframework.stereotype.Component;
  * @author cipher
  */
 @Component
-public class BeanTool extends ApplicationObjectSupport implements ApplicationContextAware {
+public class BeanTool implements ApplicationContextAware {
 
-    private static ApplicationContext applicationContext = null;
+    private static ApplicationContext applicationContext;
 
     @Override
-    protected void initApplicationContext(ApplicationContext context) {
-        super.initApplicationContext(context);
+    public void setApplicationContext(ApplicationContext context) throws BeansException {
         if (applicationContext == null) {
             applicationContext = context;
         }
     }
 
-    public static ApplicationContext getAppContext() {
-        return applicationContext;
-    }
-
     public static Object getBean(String name) {
-        return getAppContext().getBean(name);
+        return applicationContext.getBean(name);
     }
 
     public static <T> T getBean(Class<T> clazz) {
-        return getAppContext().getBean(clazz);
+        return applicationContext.getBean(clazz);
     }
 
 }
