@@ -1,7 +1,7 @@
 package com.cipher.handler_demo.service.impl;
 
 import com.cipher.handler_demo.handler.AbstractHandler;
-import com.cipher.handler_demo.handler.HandlerContext;
+import com.cipher.handler_demo.handler.HandlerProcessor;
 import com.cipher.handler_demo.model.OrderDTO;
 import com.cipher.handler_demo.service.IOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 public class OrderServiceV2Impl implements IOrderService {
 
     @Autowired
-    private HandlerContext handlerContext;
+    private HandlerProcessor.HandlerContext handlerContext;
 
     @Override
     public String handle(OrderDTO dto) {
