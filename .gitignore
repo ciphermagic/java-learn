@@ -1,3 +1,4 @@
 .idea
 /sandbox/*.iml
 target
+.DS_Store

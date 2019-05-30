@@ -3,9 +3,9 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.cipher</groupId>
     <artifactId>sandbox</artifactId>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>sandbox Maven Webapp</name>
+    <name>sandbox</name>
     <url>http://maven.apache.org</url>
 
     <dependencies>
