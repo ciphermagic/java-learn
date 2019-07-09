@@ -1,4 +1,4 @@
-package com.cipher.test;
+package com.cipher.method_name;
 
 import java.io.Serializable;
 import java.lang.invoke.SerializedLambda;
