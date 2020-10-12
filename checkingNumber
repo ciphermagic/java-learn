@@ -1,0 +1,29 @@
+package practice;
+
+import java.util.Scanner;
+
+public class CheckNumDifferenceSquare {
+
+	public static void main(String[] args) {
+		
+		Scanner scan = new Scanner (System.in);
+		System.out.print("enter num to check ");
+		int num = scan.nextInt();
+		checkNum(num);
+	}
+	public static void checkNum(int num)
+	{
+		for(int fnum=1; fnum<=num; fnum++)
+		for(int snum=1; snum<=fnum; fnum++)
+		{
+			if(fnum*fnum - snum*snum == num)
+			{
+				System.out.println("yes");
+				break;
+			}	
+		}
+		
+	}
+	
+
+}
