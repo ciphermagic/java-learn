@@ -1,33 +1,17 @@
 package com.cipher.test;
 
-import net.jodah.typetools.TypeResolver;
-
-import java.util.function.Consumer;
-
 public class Test {
 
-    public Foo getFoo() {
-        Foo foo = new Foo();
-        foo.setAge(18);
-        foo.setName("cipher");
-        return foo;
-    }
-
     public static void main(String[] args) {
-        Test test = new Test();
-        Result<Foo> data = test.get((t) -> t.setName("aaa"));
-        System.out.println();
+        System.out.println("---- new Child()");
+        Child c = new Child();
+        System.out.println("\n---- c.action()");
+        c.action();
+        Base b = c;
+        System.out.println("\n---- b.action()");
+        b.action();
+        System.out.println("\n---- b.s: " + b.s);
+        System.out.println("\n---- c.s: " + c.s);
     }
-
-    private <T> Result<T> get(Consumer<T> consumer) {
-        Class<?> aClass = TypeResolver.resolveRawArgument(Consumer.class, consumer.getClass());
-
-        return null;
-    }
-
 
 }
-
-
-
-
