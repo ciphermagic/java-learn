@@ -105,10 +105,10 @@ public class Example {
     }
 
     public static void main(String[] args) throws Exception {
-//        test01();
+        test01();
 //        test02();
 //        test03();
-        test04();
+//        test04();
 //        test05();
     }
 
