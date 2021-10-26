@@ -93,23 +93,6 @@ public class BST<E extends Comparable> {
         }
     }
 
-    public void preOrderNR() {
-        if (root != null) {
-            Stack<Node> stack = new Stack<>();
-            stack.push(root);
-            while (!stack.isEmpty()) {
-                Node cur = stack.pop();
-                System.out.println(cur.e);
-                if (cur.right != null) {
-                    stack.push(cur.right);
-                }
-                if (cur.left != null) {
-                    stack.push(cur.left);
-                }
-            }
-        }
-    }
-
     public void levelOrder() {
         if (root != null) {
             Queue<Node> queue = new LinkedList<>();
@@ -234,14 +217,85 @@ public class BST<E extends Comparable> {
         }
     }
 
+    public void inOrderNR() {
+        if (root != null) {
+            Stack<Node> stack = new Stack<>();
+            while (!stack.isEmpty() || root != null) {
+                if (root != null) {
+                    stack.push(root);
+                    root = root.left;
+                } else {
+                    Node curr = stack.pop();
+                    System.out.println(curr.e);
+                    root = curr.right;
+                }
+            }
+        }
+    }
+
+    public void preOrderNR() {
+        if (root != null) {
+            Stack<Node> stack = new Stack<>();
+            while (!stack.isEmpty() || root != null) {
+                if (root != null) {
+                    System.out.println(root.e);
+                    stack.push(root);
+                    root = root.left;
+                } else {
+                    Node curr = stack.pop();
+                    root = curr.right;
+                }
+            }
+        }
+    }
+
+    public void postOrderNR2() {
+        Node cur = root;
+        Stack<Node> stack = new Stack<>();
+        stack.push(cur);
+        while (!stack.isEmpty()) {
+            Node peek = stack.peek();
+            if (peek.left != null && peek.left != cur && peek.right != cur) {
+                stack.push(peek.left);
+            } else if (peek.right != null && peek.right != cur) {
+                stack.push((peek.right));
+            } else {
+                Node temp = stack.pop();
+                System.out.println(temp.e);
+                cur = temp;
+            }
+        }
+    }
+
+    public void postOrderNR() {
+        LinkedList<E> list = new LinkedList<>();
+        if (root != null) {
+            Stack<Node> stack = new Stack<>();
+            while (!stack.isEmpty() || root != null) {
+                if (root != null) {
+                    list.addFirst(root.e);
+                    stack.push(root);
+                    root = root.right;
+                } else {
+                    Node curr = stack.pop();
+                    root = curr.left;
+                }
+            }
+        }
+        for (E e : list) {
+            System.out.println(e);
+        }
+    }
+
     public static void main(String[] args) {
         BST<Integer> bst = new BST<>();
         int[] nums = {5, 3, 6, 2, 4, 8};
         for (Integer i : nums) {
             bst.add(i);
         }
-        bst.remove(6);
-        bst.levelOrder();
+//        bst.inOrderNR();
+//        bst.preOrderNR();
+        bst.preOrderNR();
     }
 
 }
