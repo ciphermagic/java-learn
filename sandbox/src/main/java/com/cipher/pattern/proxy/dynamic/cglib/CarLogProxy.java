@@ -31,6 +31,7 @@ public class CarLogProxy implements MethodInterceptor {
      * @return
      * @throws Throwable
      */
+    @Override
     public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
         System.out.println("日志开始......");
         // 代理类调用父类的方法
